@@ -118,11 +118,6 @@
                             <mainClass>app.App</mainClass>
                         </transformer>
                     </transformers>
-<configuration>
-           <additionalClasspathElements>
-             <additionalClasspathElement>src/main/resources</additionalClasspathElement>
-           </additionalClasspathElements>
-         </configuration>
                 </configuration>
                 <executions>
                     <execution>
@@ -144,6 +139,30 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <id>add-resource</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-resource</goal>
+                        </goals>
+                        <configuration>
+                            <resources>
+                                <resource>
+                                    <directory>resources</directory>
+                                </resource>
+                                <resource>
+                                    <directory>desc</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
 <!--        <resources> -->
 <!--         	<resource> -->
