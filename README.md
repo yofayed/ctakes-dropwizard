@@ -13,4 +13,4 @@ To use the service
 
 To start the server:
 * sh setup.sh
-* java -Dctakes.umlsuser=<umls_username> -Dctakes.umlspw=<umls_passwd> -jar target/ctakes-dropwizard.0.0.1-SNAPSHOT.jar server
+* ```java -Dctakes.umlsuser=<umls_username> -Dctakes.umlspw=<umls_passwd> -jar target/ctakes-dropwizard.0.0.1-SNAPSHOT.jar server```
