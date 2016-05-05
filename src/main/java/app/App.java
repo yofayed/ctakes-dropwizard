@@ -16,7 +16,7 @@ public class App extends Application<AppConfiguration> {
 
     @Override
     public String getName() {
-        return "claims-annotator";
+        return "ctakes-annotator";
     }
 
     @Override
