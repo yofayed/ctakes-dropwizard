@@ -1,6 +1,7 @@
 package clinicalpipeline;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
@@ -39,8 +40,11 @@ public class ClinicalPipeline {
     
 	public ClinicalPipeline(){
 		try {
-			pipeline = AnalysisEngineFactory.createEngineDescription(
-					"/home/apoorv/dev/claims/cog-claims/claims-nlp/desc/ctakes-clinical-pipeline/desc/analysis_engine/AggregatePlaintextFastUMLSProcessor");
+            String basedir = System.getenv("CTAKES_DRP_BASEDIR");
+            File file1 = new File(basedir);
+            File file2 = new File(file1, "desc/ctakes-clinical-pipeline/desc/analysis_engine/AggregatePlaintextFastUMLSProcessor");
+
+            pipeline = AnalysisEngineFactory.createEngineDescription(file2.getPath());
 			ResourceManager resMgr = UIMAFramework.newDefaultResourceManager();
 			ae = UIMAFramework.produceAnalysisEngine(pipeline, resMgr, null);
 		} catch (InvalidXMLException e) {
